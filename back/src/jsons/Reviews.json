@@ -1,0 +1,42 @@
+[
+  {
+    "juegoId": "6907c142183a58f05f1cf42e",
+    "puntuacion": 5,
+    "textoReseña": "El mundo abierto de FromSoftware es brutal y hermoso. Margit me hizo sufrir, pero la sensación de victoria es inigualable.",
+    "horasJugadas": 200,
+    "dificultad": "Difícil",
+    "recomendaria": true
+  },
+  {
+    "juegoId": "6907c142183a58f05f1cf42d",
+    "puntuacion": 5,
+    "textoReseña": "¡Una obra maestra! La exploración en el cielo y el subsuelo es increíble. La habilidad de 'Combinar' lo cambia todo.",
+    "horasJugadas": 150,
+    "dificultad": "Normal",
+    "recomendaria": true
+  },
+  {
+    "juegoId": "6907c142183a58f05f1cf42f",
+    "puntuacion": 5,
+    "textoReseña": "El mejor RPG en décadas. La cantidad de opciones y consecuencias es abrumadora, en el buen sentido.",
+    "horasJugadas": 120,
+    "dificultad": "Normal",
+    "recomendaria": true
+  },
+  {
+    "juegoId": "6907c142183a58f05f1cf430",
+    "puntuacion": 4,
+    "textoReseña": "Muy adictivo. La historia se desenvuelve con cada intento de escape. A veces la suerte (RNG) puede ser frustrante.",
+    "horasJugadas": 80,
+    "dificultad": "Difícil",
+    "recomendaria": true
+  },
+  {
+    "juegoId": "6907c142183a58f05f1cf431",
+    "puntuacion": 3,
+    "textoReseña": "Es relajante, pero no es para mí. Demasiado 'farmeo' y se vuelve repetitivo. Prefiero los juegos con más acción.",
+    "horasJugadas": 25,
+    "dificultad": "Fácil",
+    "recomendaria": false
+  }
+]

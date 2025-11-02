@@ -1,0 +1,47 @@
+[
+  {
+    "titulo": "The Legend of Zelda: Tears of the Kingdom",
+    "genero": "Aventura / Acción",
+    "plataforma": "Nintendo Switch",
+    "añoLanzamiento": 2023,
+    "desarrollador": "Nintendo EPD",
+    "imagenPortada": "https://ejemplo.com/imagenes/totk_portada.jpg",
+    "descripcion": "Una secuela de Breath of the Wild, donde Link explora un Hyrule fracturado, tanto en el cielo como en la superficie y el subsuelo."
+  },
+  {
+    "titulo": "Elden Ring",
+    "genero": "Acción RPG",
+    "plataforma": "PC / PS5 / Xbox Series X",
+    "añoLanzamiento": 2022,
+    "desarrollador": "FromSoftware",
+    "imagenPortada": "https://ejemplo.com/imagenes/elden_ring_portada.jpg",
+    "descripcion": "Un vasto mundo de fantasía oscura creado por Hidetaka Miyazaki y George R. R. Martin. Conviértete en el Señor del Círculo."
+  },
+  {
+    "titulo": "Baldur's Gate 3",
+    "genero": "Rol (RPG)",
+    "plataforma": "PC / PS5",
+    "añoLanzamiento": 2023,
+    "desarrollador": "Larian Studios",
+    "imagenPortada": "https://ejemplo.com/imagenes/bg3_portada.jpg",
+    "descripcion": "Un juego de rol de nueva generación ambientado en el mundo de Dungeons & Dragons, donde tus elecciones dan forma a una historia de compañerismo y traición."
+  },
+  {
+    "titulo": "Hades",
+    "genero": "Roguelite / Acción",
+    "plataforma": "PC / Switch / PS4 / Xbox One",
+    "añoLanzamiento": 2020,
+    "desarrollador": "Supergiant Games",
+    "imagenPortada": "https://ejemplo.com/imagenes/hades_portada.jpg",
+    "descripcion": "Desafía al dios de los muertos mientras te abres paso a base de 'hack and slash' para escapar del inframundo de la mitología griega."
+  },
+  {
+    "titulo": "Stardew Valley",
+    "genero": "Simulación / RPG",
+    "plataforma": "PC / Móvil / Todas las consolas",
+    "añoLanzamiento": 2016,
+    "desarrollador": "ConcernedApe",
+    "imagenPortada": "https://ejemplo.com/imagenes/stardew_portada.jpg",
+    "descripcion": "Heredas la vieja granja de tu abuelo en Stardew Valley. ¿Puedes aprender a vivir de la tierra y convertir esos campos descuidados en un hogar próspero?"
+  }
+]
