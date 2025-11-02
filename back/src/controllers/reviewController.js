@@ -8,3 +8,17 @@ export const getAllReviews = async (req, res) => {
         res.status(500).json({ message: 'Error al obtener las reseñas', error });
     }
 }
+
+
+export const getReviewById = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const review = await Review.findById(id);               
+        if (!review) {
+            return res.status(404).json({ message: 'Reseña no encontrada' });
+        }
+        res.status(200).json(review);
+    } catch (error) {
+        res.status(500).json({ message: 'Error al obtener la reseña', error });
+    }
+}   
