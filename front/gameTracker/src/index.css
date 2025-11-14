@@ -5,58 +5,76 @@
 }
 
 :root {
-  /* Colores principales - Tema gaming moderno */
-  --color-primary: #6366f1;
-  --color-primary-dark: #4f46e5;
-  --color-primary-light: #818cf8;
-  --color-secondary: #8b5cf6;
-  --color-accent: #ec4899;
+  /* Colores Cyberpunk Sobrios - Azules/Grises Tecnológicos */
+  --tech-blue-dark: #1a237e;
+  --tech-blue: #3f51b5;
+  --tech-blue-light: #5c6bc0;
+  --tech-blue-bright: #7986cb;
+  --tech-gray: #607d8b;
+  --tech-gray-light: #78909c;
+  --tech-cyan: #00acc1;
+  --tech-cyan-subtle: rgba(0, 172, 193, 0.3);
+  
+  /* Colores principales */
+  --color-primary: var(--tech-blue);
+  --color-primary-dark: var(--tech-blue-dark);
+  --color-primary-light: var(--tech-blue-light);
+  --color-secondary: var(--tech-blue-bright);
+  --color-accent: var(--tech-cyan);
   
   /* Colores de estado */
-  --color-success: #10b981;
-  --color-warning: #f59e0b;
-  --color-danger: #ef4444;
-  --color-info: #3b82f6;
+  --color-success: #4caf50;
+  --color-success-glow: rgba(76, 175, 80, 0.3);
+  --color-warning: #ff9800;
+  --color-warning-glow: rgba(255, 152, 0, 0.3);
+  --color-danger: #f44336;
+  --color-danger-glow: rgba(244, 67, 54, 0.3);
+  --color-info: var(--tech-cyan);
+  --color-info-glow: var(--tech-cyan-subtle);
   
-  /* Colores de fondo */
-  --bg-primary: #0f172a;
-  --bg-secondary: #1e293b;
-  --bg-tertiary: #334155;
-  --bg-card: #1e293b;
-  --bg-card-hover: #334155;
-  --bg-modal: rgba(15, 23, 42, 0.95);
+  /* Fondos negros con matices azulados */
+  --bg-primary: #0a0e1a;
+  --bg-secondary: #121620;
+  --bg-tertiary: #1a1f2e;
+  --bg-card: #151922;
+  --bg-card-hover: #1d2330;
+  --bg-modal: rgba(10, 14, 26, 0.98);
   
   /* Colores de texto */
-  --text-primary: #f1f5f9;
-  --text-secondary: #cbd5e1;
-  --text-muted: #94a3b8;
+  --text-primary: #e8eaf6;
+  --text-secondary: #b0bec5;
+  --text-muted: #78909c;
   
-  /* Sombras */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
-  --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.3);
+  /* Sombras y efectos glow sutiles */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
+  --shadow-md: 0 2px 4px 0 rgba(0, 0, 0, 0.9);
+  --shadow-lg: 0 4px 8px 0 rgba(0, 0, 0, 0.95);
+  --shadow-xl: 0 8px 16px 0 rgba(0, 0, 0, 0.98);
+  --glow-primary: 0 0 8px rgba(63, 81, 181, 0.4), 0 0 16px rgba(63, 81, 181, 0.2);
+  --glow-cyan: 0 0 8px var(--tech-cyan-subtle), 0 0 12px rgba(0, 172, 193, 0.2);
+  --glow-subtle: 0 0 4px rgba(63, 81, 181, 0.3);
+  --glow-hover: 0 0 12px rgba(63, 81, 181, 0.5);
   
-  /* Espaciado */
+  /* Espaciado compacto */
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 1.5rem;
-  --spacing-xl: 2rem;
-  --spacing-2xl: 3rem;
+  --spacing-md: 0.75rem;
+  --spacing-lg: 1rem;
+  --spacing-xl: 1.5rem;
+  --spacing-2xl: 2rem;
   
-  /* Bordes */
-  --border-radius-sm: 0.375rem;
-  --border-radius-md: 0.5rem;
-  --border-radius-lg: 0.75rem;
-  --border-radius-xl: 1rem;
+  /* Bordes delgados */
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.375rem;
+  --border-radius-lg: 0.5rem;
+  --border-radius-xl: 0.75rem;
   --border-radius-full: 9999px;
+  --border-width: 1px;
   
-  /* Transiciones */
+  /* Transiciones rápidas */
   --transition-fast: 150ms ease;
-  --transition-base: 300ms ease;
-  --transition-slow: 500ms ease;
+  --transition-base: 200ms ease;
+  --transition-slow: 300ms ease;
   
   /* Breakpoints */
   --breakpoint-sm: 640px;
@@ -66,38 +84,40 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  background: var(--bg-primary);
   color: var(--text-primary);
   min-height: 100vh;
-  line-height: 1.6;
+  line-height: 1.5;
+  font-size: 14px;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Fira Code', 'Courier New', monospace;
 }
 
-/* Scrollbar personalizado */
+/* Scrollbar cyberpunk sobrio */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--bg-tertiary);
+  border: 1px solid var(--tech-blue);
   border-radius: var(--border-radius-full);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary);
+  background: var(--tech-blue);
+  box-shadow: var(--glow-subtle);
 }
 
 /* Utilidades */

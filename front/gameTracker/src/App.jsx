@@ -73,24 +73,26 @@ function App() {
       </header>
 
       <nav className="app-nav">
-        <button
-          className={`nav-button ${activeView === 'biblioteca' ? 'active' : ''}`}
-          onClick={() => setActiveView('biblioteca')}
-        >
-          <FaGamepad /> Biblioteca
-        </button>
-        <button
-          className={`nav-button ${activeView === 'reseñas' ? 'active' : ''}`}
-          onClick={() => setActiveView('reseñas')}
-        >
-          <FaStar /> Reseñas
-        </button>
-        <button
-          className={`nav-button ${activeView === 'estadisticas' ? 'active' : ''}`}
-          onClick={() => setActiveView('estadisticas')}
-        >
-          <FaChartLine /> Estadísticas
-        </button>
+        <div className="nav-container">
+          <button
+            className={`nav-button ${activeView === 'biblioteca' ? 'active' : ''}`}
+            onClick={() => setActiveView('biblioteca')}
+          >
+            <FaGamepad /> Biblioteca
+          </button>
+          <button
+            className={`nav-button ${activeView === 'reseñas' ? 'active' : ''}`}
+            onClick={() => setActiveView('reseñas')}
+          >
+            <FaStar /> Reseñas
+          </button>
+          <button
+            className={`nav-button ${activeView === 'estadisticas' ? 'active' : ''}`}
+            onClick={() => setActiveView('estadisticas')}
+          >
+            <FaChartLine /> Estadísticas
+          </button>
+        </div>
       </nav>
 
       <main className="app-main">
