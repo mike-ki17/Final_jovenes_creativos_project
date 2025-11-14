@@ -22,15 +22,29 @@
 .header-content {
   max-width: 1400px;
   margin: 0 auto;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  position: absolute;
+  right: 0;
 }
 
 .logo {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: var(--spacing-sm);
-  margin-bottom: var(--spacing-xs);
+  gap: var(--spacing-xs);
+  flex: 1;
+  text-align: center;
 }
 
 .logo-icon {
@@ -1155,6 +1169,157 @@
 
 .empty-state p {
   font-size: 0.9rem;
+}
+
+/* ============================================
+   AUTH FORMS
+   ============================================ */
+
+.formulario-auth {
+  padding: var(--spacing-lg);
+}
+
+.formulario-auth .form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.formulario-auth label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.formulario-auth input {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border: var(--border-width) solid var(--bg-tertiary);
+  border-radius: var(--radius-sm);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.formulario-auth input:focus {
+  outline: none;
+  border-color: var(--tech-blue);
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+/* ============================================
+   ADMIN DASHBOARD
+   ============================================ */
+
+.dashboard-admin {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+}
+
+.dashboard-header {
+  margin-bottom: var(--spacing-xl);
+}
+
+.dashboard-header h2 {
+  color: var(--tech-blue-light);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+}
+
+.stat-card {
+  background: var(--bg-secondary);
+  border: var(--border-width) solid var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  transition: all var(--transition-base);
+}
+
+.stat-card:hover {
+  border-color: var(--tech-blue);
+  box-shadow: var(--glow-subtle);
+}
+
+.stat-icon {
+  font-size: 2rem;
+  color: var(--tech-blue);
+}
+
+.stat-content h3 {
+  font-size: 2rem;
+  color: var(--tech-blue-light);
+  margin: 0;
+}
+
+.stat-content p {
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.admin-section {
+  background: var(--bg-secondary);
+  border: var(--border-width) solid var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.admin-section h3 {
+  color: var(--tech-blue-light);
+  margin-bottom: var(--spacing-md);
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: var(--spacing-sm) var(--spacing-md);
+  text-align: left;
+  border-bottom: var(--border-width) solid var(--bg-tertiary);
+}
+
+.admin-table th {
+  background: var(--bg-tertiary);
+  color: var(--tech-blue-light);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+}
+
+.admin-table td {
+  color: var(--text-primary);
+}
+
+.admin-table tr:hover {
+  background: var(--bg-tertiary);
+}
+
+.admin-table select {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border: var(--border-width) solid var(--bg-tertiary);
+  border-radius: var(--radius-sm);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  cursor: pointer;
 }
 
 /* ============================================

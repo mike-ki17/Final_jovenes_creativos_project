@@ -1,7 +1,52 @@
-import { FaEdit, FaTrash, FaCheckCircle, FaClock } from 'react-icons/fa';
+import { useState, useEffect } from 'react';
+import { FaEdit, FaTrash, FaCheckCircle, FaClock, FaHeart } from 'react-icons/fa';
 import { gamesAPI } from '../services/api';
+import { favoritesAPI } from '../services/favorites';
+import { useAuth } from '../contexts/AuthContext';
 
-const TarjetaJuego = ({ juego, onEdit, onDelete, onToggleCompletado, reviews = [] }) => {
+const TarjetaJuego = ({ juego, onEdit, onDelete, onToggleCompletado, reviews = [], showFavoriteButton = true }) => {
+  const { isAuthenticated } = useAuth();
+  const [isFavorite, setIsFavorite] = useState(false);
+  const [loadingFavorite, setLoadingFavorite] = useState(false);
+
+  useEffect(() => {
+    if (isAuthenticated && showFavoriteButton) {
+      checkFavorite();
+    }
+  }, [isAuthenticated, juego._id, showFavoriteButton]);
+
+  const checkFavorite = async () => {
+    try {
+      const result = await favoritesAPI.check(juego._id);
+      setIsFavorite(result.isFavorite);
+    } catch (error) {
+      // Si no está autenticado, simplemente no mostrar como favorito
+      setIsFavorite(false);
+    }
+  };
+
+  const handleToggleFavorite = async (e) => {
+    e.stopPropagation();
+    if (!isAuthenticated) {
+      alert('Debes iniciar sesión para agregar favoritos');
+      return;
+    }
+
+    setLoadingFavorite(true);
+    try {
+      if (isFavorite) {
+        await favoritesAPI.remove(juego._id);
+        setIsFavorite(false);
+      } else {
+        await favoritesAPI.add(juego._id);
+        setIsFavorite(true);
+      }
+    } catch (error) {
+      alert('Error al actualizar favoritos: ' + error.message);
+    } finally {
+      setLoadingFavorite(false);
+    }
+  };
   const juegoReviews = reviews.filter(r => r.juegoId?._id === juego._id || r.juegoId === juego._id);
   const promedioPuntuacion = juegoReviews.length > 0
     ? (juegoReviews.reduce((sum, r) => sum + r.puntuacion, 0) / juegoReviews.length).toFixed(1)
@@ -43,6 +88,33 @@ const TarjetaJuego = ({ juego, onEdit, onDelete, onToggleCompletado, reviews = [
             <FaCheckCircle />
             <span>Completado</span>
           </div>
+        )}
+        {isAuthenticated && showFavoriteButton && (
+          <button
+            className={`btn-icon btn-favorite ${isFavorite ? 'active' : ''}`}
+            onClick={handleToggleFavorite}
+            disabled={loadingFavorite}
+            style={{
+              position: 'absolute',
+              top: '10px',
+              right: '10px',
+              zIndex: 10,
+              background: isFavorite ? 'rgba(231, 76, 60, 0.9)' : 'rgba(0, 0, 0, 0.6)',
+              color: 'white',
+              border: 'none',
+              borderRadius: '50%',
+              width: '40px',
+              height: '40px',
+              cursor: loadingFavorite ? 'wait' : 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              transition: 'all 0.3s',
+            }}
+            title={isFavorite ? 'Remover de favoritos' : 'Agregar a favoritos'}
+          >
+            <FaHeart />
+          </button>
         )}
       </div>
       
