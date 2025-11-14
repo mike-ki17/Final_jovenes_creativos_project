@@ -3,7 +3,9 @@ import { Game } from "../models/Game.js";
 
 export const getAllReviews = async (req, res) => {
     try {
-        const reviews = await Review.find().populate('juegoId', 'titulo imagenPortada');
+        const reviews = await Review.find()
+            .populate('juegoId', 'titulo imagenPortada')
+            .populate('usuarioId', 'nombre email');
         res.status(200).json(reviews);
     }catch (error) {
         res.status(500).json({ message: 'Error al obtener las reseñas', error });
@@ -13,7 +15,9 @@ export const getAllReviews = async (req, res) => {
 export const getReviewById = async (req, res) => {
     const { id } = req.params;
     try {
-        const review = await Review.findById(id).populate('juegoId', 'titulo imagenPortada');
+        const review = await Review.findById(id)
+            .populate('juegoId', 'titulo imagenPortada')
+            .populate('usuarioId', 'nombre email');
         if (!review) {
             return res.status(404).json({ message: 'Reseña no encontrada' });
         }
@@ -33,7 +37,9 @@ export const getReviewsByGameId = async (req, res) => {
             return res.status(404).json({ message: 'Juego no encontrado' });
         }
 
-        const reviews = await Review.find({ juegoId }).populate('juegoId', 'titulo imagenPortada');
+        const reviews = await Review.find({ juegoId })
+            .populate('juegoId', 'titulo imagenPortada')
+            .populate('usuarioId', 'nombre email');
         res.status(200).json(reviews);
     } catch (error) {
         res.status(500).json({ message: 'Error al obtener las reseñas del juego', error: error.message });
@@ -62,6 +68,7 @@ export const createReview = async (req, res) => {
 
         const newReview = new Review({
             juegoId,
+            usuarioId: req.user?._id || null, // Asociar con usuario si está autenticado
             puntuacion,
             textoReseña: textoReseña || '',
             horasJugadas: horasJugadas || 0,
@@ -70,7 +77,9 @@ export const createReview = async (req, res) => {
         });
 
         const savedReview = await newReview.save();
-        const populatedReview = await Review.findById(savedReview._id).populate('juegoId', 'titulo imagenPortada');
+        const populatedReview = await Review.findById(savedReview._id)
+            .populate('juegoId', 'titulo imagenPortada')
+            .populate('usuarioId', 'nombre email');
         res.status(201).json(populatedReview);
     } catch (error) {
         res.status(500).json({ message: 'Error al crear la reseña', error: error.message });
@@ -90,7 +99,9 @@ export const updateReview = async (req, res) => {
             id,
             { ...req.body, fechaCreacion: undefined }, // No permitir actualizar fechaCreacion
             { new: true, runValidators: true }
-        ).populate('juegoId', 'titulo imagenPortada');
+        )
+        .populate('juegoId', 'titulo imagenPortada')
+        .populate('usuarioId', 'nombre email');
 
         if (!updatedReview) {
             return res.status(404).json({ message: 'Reseña no encontrada' });

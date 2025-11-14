@@ -7,6 +7,11 @@ const reviewSchema = new mongoose.Schema({
     ref: "Game", // Le dice a Mongoose que este ID pertenece al modelo 'Game'
     required: true,
   },
+  usuarioId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: false, // Hacer opcional para compatibilidad con datos existentes
+  },
   puntuacion: {
     type: Number,
     min: 1,
